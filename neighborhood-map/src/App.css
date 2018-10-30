@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .App-logo {
@@ -25,17 +27,25 @@
 /* List */
 
 .list {
+  width: 100%;
   background-color: red;
 }
 
 /* Location Info */
 .location {
+  width: 100%;
   background-color: blue;
 }
 
 /* Map */
 .g-map {
+  width: 100%;
   background-color: aquamarine;
+}
+
+/* Footer */
+footer {
+  width: 100%;
 }
 
 
