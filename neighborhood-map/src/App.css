@@ -24,9 +24,19 @@
 
 /* List */
 
-/* Info */
+.list {
+  background-color: red;
+}
+
+/* Location Info */
+.location {
+  background-color: blue;
+}
 
 /* Map */
+.g-map {
+  background-color: aquamarine;
+}
 
 
 @keyframes App-logo-spin {

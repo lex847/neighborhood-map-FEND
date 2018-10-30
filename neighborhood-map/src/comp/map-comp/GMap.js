@@ -4,7 +4,7 @@ class GMap extends Component {
 
     render() {
         return (
-            <div className="map">
+            <div className="g-map">
                    <h1>map</h1>
             </div>
         )
