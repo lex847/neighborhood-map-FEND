@@ -4,8 +4,8 @@ class Location extends Component {
 
     render() {
         return (
-            <div className="map">
-                   
+            <div className="location">
+                   <h1>location</h1>
             </div>
         )
     }

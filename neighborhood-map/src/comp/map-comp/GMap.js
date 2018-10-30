@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 
-class Map extends Component {
+class GMap extends Component {
 
     render() {
         return (
             <div className="map">
-                   
+                   <h1>map</h1>
             </div>
         )
     }
 }
 
-export default Map
+export default GMap

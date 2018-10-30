@@ -4,8 +4,8 @@ class List extends Component {
 
     render() {
         return (
-            <div className="map">
-                   
+            <div className="list">
+                <h1>list</h1>
             </div>
         )
     }
