@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Map extends Component {
+class Location extends Component {
 
     render() {
         return (
@@ -11,4 +11,4 @@ class Map extends Component {
     }
 }
 
-export default Map
+export default Location
