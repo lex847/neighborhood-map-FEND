@@ -38,7 +38,7 @@ body, html, #root{
 
 @media only screen and (max-width: 549px) {
   .list{
-    visibility: none;
+    display: none;
   }
 }
 @media only screen and (min-width: 550px) {
@@ -56,7 +56,13 @@ body, html, #root{
 }
 
 @media only screen and (max-width: 549px) {
-
+  .info-list-container {
+    width: 100%;
+    height: 35%;
+  }
+  .location {
+    height: 100%;
+  }
 }
 @media only screen and (min-width: 550px) {
 
@@ -72,7 +78,10 @@ body, html, #root{
 }
 
 @media only screen and (max-width: 549px) {
-
+  .map-container{
+    width: 100%;
+    height: 70%;
+  }
 }
 @media only screen and (min-width: 550px) {
 
