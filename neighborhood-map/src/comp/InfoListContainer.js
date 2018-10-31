@@ -7,8 +7,8 @@ class InfoListContainer extends Component {
     render() {
         return (
             <div className="info-list-container">
-                <Location/>
                 <List/>
+                <Location/>
             </div>
         )
     }
