@@ -1,14 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-class GMap extends Component {
+export class GMapContainer extends Component {
 
-    render() {
+    render() { // Cited from: https://www.npmjs.com/package/google-maps-react 11.01.18
         return (
-            <div className="g-map">
-                   <h1>map</h1>
+            <div id="map" className="g-map">
+                   <Map
+                        google= { this.props.google }
+                        zoom= { 14 } >
+                        <Marker
+                            onClick= { this.onMarkerClick }
+                            name= { 'Current Location'}
+                        />
+                        <InfoWindow
+                            onClose= { this.onInfoWindowClose } >
+                            <div>
+                                <h1>{ 'Test'/*this.state.selectedPlace.name */}</h1>
+                            </div>
+                        </InfoWindow>
+                    </Map>
             </div>
-        )
+        );
     }
 }
 
-export default GMap
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ'
+})(GMapContainer)

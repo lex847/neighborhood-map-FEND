@@ -121,6 +121,9 @@ body, html, #root{
 }
 
 /* Map */
+/*#map {
+  height: 100%;
+}*/
 .g-map {
   width: 100%;
   background-color: aquamarine;
