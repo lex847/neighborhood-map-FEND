@@ -48,11 +48,11 @@ body, html, #root{
 
 @media only screen and (min-width: 800px) {
   .info-list-container {
-    width: 32%;
+    width: 30%;
     height: 100%;
   }  
   .map-container {
-    width: 67%;
+    width: 70%;
     height: 100%;
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'; //https://github.com/fullstackreact/google-maps-react 11.01.18
 
 
 export class GMapContainer extends Component {
@@ -13,7 +13,11 @@ export class GMapContainer extends Component {
                    <Map
                         google= { this.props.google }
                         zoom= { 14 } 
-                        style={ style }>
+                        style={ style }
+                        initialCenter={{
+                            lat: 40.8250585,
+                            lng: -73.9476404
+                          }}>
                         <Marker
                             onClick= { this.onMarkerClick }
                             name= { 'Current Location'}
