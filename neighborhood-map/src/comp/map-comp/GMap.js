@@ -8,26 +8,28 @@ export class GMapContainer extends Component {
         const style = {
 
         }
+        console.log(this.props)
         return (
             <div id="map" className="g-map">
                    <Map
                         google= { this.props.google }
                         zoom= { 14 } 
                         style={ style }
-                        initialCenter={{
+                        initialCenter={ {
                             lat: 40.8250585,
                             lng: -73.9476404
-                          }}>
-                        <Marker
-                            onClick= { this.onMarkerClick }
-                            name= { 'Current Location'}
-                        />
-                        <InfoWindow
-                            onClose= { this.onInfoWindowClose } >
-                            <div>
-                                <h1>{ 'Test'/*this.state.selectedPlace.name */}</h1>
-                            </div>
-                        </InfoWindow>
+                          } }>
+                        {this.props.places.map(function(place){
+                            console.log(place);
+                            return (
+                                    <Marker
+                                    key={ place.id }
+                                    name={ place.name }
+                                    position={{lat: place.lat, lng: place.lon}}
+                                    //onClick= { this.onMarkerClick }
+                                    />
+                            )
+                        })}
                     </Map>
             </div>
         );

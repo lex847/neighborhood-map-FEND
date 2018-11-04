@@ -6,7 +6,9 @@ class MapContainer extends Component {
     render() {
         return (
             <div className="map-container">
-                <GoogleApiWrapper/>
+                <GoogleApiWrapper
+                places= { this.props.places }
+                />
             </div>
         )
     }
