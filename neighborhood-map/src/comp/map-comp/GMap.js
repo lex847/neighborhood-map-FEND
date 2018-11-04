@@ -6,8 +6,7 @@ export class GMapContainer extends Component {
 
     render() { // Cited from: https://www.npmjs.com/package/google-maps-react 11.01.18
         const style = {
-            width: '100%',
-            height: '100%'
+
         }
         return (
             <div id="map" className="g-map">
