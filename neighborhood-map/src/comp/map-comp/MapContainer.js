@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import GMapContainer from './GMap'
+import GMapContainer from './GMapContainer'
 
 class MapContainer extends Component {
 
