@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'; //https://github.com/fullstackreact/google-maps-react 11.01.18
 
 
 export class GMapContainer extends Component {
 
-    render() { // Cited from: https://www.npmjs.com/package/google-maps-react 11.01.18
+    render() {
         const style = {
 
         }
         console.log(this.props)
         return (
-            <div id="map" className="g-map">
+            /*<div id="map" className="g-map">
                    <Map
                         google= { this.props.google }
                         zoom= { 14 } 
@@ -31,11 +30,10 @@ export class GMapContainer extends Component {
                             )
                         })}
                     </Map>
-            </div>
+            </div>*/
+            <div>Map Template</div>
         );
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ'
-})(GMapContainer)
+export default GMapContainer

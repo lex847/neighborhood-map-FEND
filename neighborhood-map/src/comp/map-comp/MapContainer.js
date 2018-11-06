@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import GoogleApiWrapper from './GMap'
+import GMapContainer from './GMap'
 
 class MapContainer extends Component {
 
     render() {
         return (
             <div className="map-container">
-                <GoogleApiWrapper
+                <GMapContainer
                 places= { this.props.places }
                 />
             </div>
