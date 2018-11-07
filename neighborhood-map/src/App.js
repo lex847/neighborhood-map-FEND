@@ -46,7 +46,7 @@ class App extends Component {
         'street': "3486 Broadway, New York, NY 10031",
         'fsquareID': "55a15550498e4dc36c4845c3"
       }
-    ]
+    ],
     markers: 0,
     defaultLatLon: {},
     mapZoom: {},
@@ -54,16 +54,20 @@ class App extends Component {
   }
   markerHandleClickEvent = (event, latlong, index) => {
     this.setState ({
-      markers = index,
-      defaultLatLon = latlong //centers map after click event
+      markers: index,
+      defaultLatLon: latlong //centers map after click event.. fancy huh?
     })
   }
 
   render() {
     return (
       <div className="App">
-        <InfoListContainer/>
+        <InfoListContainer
+          listItemClick = { this.markerHandleClickEvent }
+          places = { this.state.places }
+        />
         <MapContainer
+          markerClick = { this.markerHandleClickEvent }
           places={ this.state.places }  
         />
       </div>
