@@ -10,23 +10,21 @@ export class GMapContainer extends Component {
                 defaultZoom = { 14 }
             >
             {this.props.places.map(function(place){
-                console.log(place);
                 return (
-                        <Marker
-                        //key={ place.id }
-                        //name={ place.name }
+                    <Marker
+                        key={ place.id }
+                        name={ place.name }
                         position={{lat: place.lat, lng: place.lon}}
-                        //onClick= { this.onMarkerClick }
-                        />
+                    />
                 )
             })}
             </GoogleMap>
         ));
         console.log(this.props)
         return (
-            <div>
+            <div class='map-container__content'>
                 <GoogleMapDir
-                    containerElement= { <div style={{ height: '100%', width: '500px' }}/> }
+                    containerElement= { <div style={{ height: '100%', width: '100%' }}/> }
                     mapElement= { <div style={{ height: '100%' }} /> }
                 />
             </div>

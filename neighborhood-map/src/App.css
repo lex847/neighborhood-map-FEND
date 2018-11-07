@@ -17,6 +17,9 @@ body, html, #root{
   display: flex;
   flex-wrap: wrap;
 }
+.map-container__content {
+  width: 100%;
+}
 
 .info-list-container{
   display: flex;
