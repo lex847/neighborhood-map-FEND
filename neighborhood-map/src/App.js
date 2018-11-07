@@ -47,7 +47,18 @@ class App extends Component {
         'fsquareID': "55a15550498e4dc36c4845c3"
       }
     ]
+    markers: 0,
+    defaultLatLon: {},
+    mapZoom: {},
+
   }
+  markerHandleClickEvent = (event, latlong, index) => {
+    this.setState ({
+      markers = index,
+      defaultLatLon = latlong //centers map after click event
+    })
+  }
+
   render() {
     return (
       <div className="App">
