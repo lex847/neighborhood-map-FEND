@@ -52,10 +52,19 @@ class App extends Component {
     mapZoom: {},
 
   }
+
   markerHandleClickEvent = (event, latlong, index) => {
     this.setState ({
       markers: index,
       defaultLatLon: latlong //centers map after click event.. fancy huh?
+    })
+  }
+  
+  infoWindowClose = (event) => { //resets state values 
+    this.setState({
+      markers: -1,
+      defaultLatLon: ,
+      mapZoom: 
     })
   }
 

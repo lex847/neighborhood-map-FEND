@@ -8,6 +8,7 @@ class MapContainer extends Component {
             <div className="map-container">
                 <GMapContainer
                 places= { this.props.places }
+                markerClick = { this.props.markerHandleClickEvent }
                 />
             </div>
         )
