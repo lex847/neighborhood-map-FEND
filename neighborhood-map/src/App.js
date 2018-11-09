@@ -45,13 +45,29 @@ class App extends Component {
         'lon': -73.95150679467686,
         'street': "3486 Broadway, New York, NY 10031",
         'fsquareID': "55a15550498e4dc36c4845c3"
-      }
-    ],
+      }    ],
     markers: 0,
-    defaultLatLon: {},
+    defaultLatLon: { lat: 40.8250585, lng: -73.9476404 },
     mapZoom: {},
+    test: [34]
 
   }
+  getAll = () =>
+  fetch(`https://api.foursquare.com/v2/venues/${this.state.places[0].fsquareID}?&client_id=004MZJ3NNBLTSYALLLXDQJ4UMRSWRDA52B5B4Y2QVQMH4THL&client_secret=VDBKT5F4MD0SIK4U4I0LCP3MAQYJ24425IIHYVHG5E13URU3&v=20180323`, { 
+      'Accept': 'application/json',
+  }).then(res => res.json())
+      .then(data => data.response)
+      //.then(data => data.books)
+
+  componentDidMount(){ //based off Udacity 'Render UI with External Data' course
+  this.getAll().then((places) => { //.getAll can be found in the README.md
+    this.setState({ test: places } )
+  }).then(console.log(this.state.test))
+  .catch( e => {
+    alert(e);
+  })
+}
+
 
   markerHandleClickEvent = (event, latlong, index) => {
     this.setState ({
@@ -69,6 +85,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.test)
     return (
       <div className="App">
         <InfoListContainer

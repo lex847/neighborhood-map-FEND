@@ -20,7 +20,6 @@ export class GMapContainer extends Component {
             })}
             </GoogleMap>
         );
-        console.log(this.props)
         return (
             <div className='map-container__content'>
                 <GoogleMapDir
