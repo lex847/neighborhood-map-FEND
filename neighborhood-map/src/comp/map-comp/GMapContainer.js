@@ -22,7 +22,7 @@ export class GMapContainer extends Component {
         );
         console.log(this.props)
         return (
-            <div class='map-container__content'>
+            <div className='map-container__content'>
                 <GoogleMapDir
                     containerElement= { <div style={{ height: '100%', width: '100%' }}/> }
                     mapElement= { <div style={{ height: '100%' }} /> }
