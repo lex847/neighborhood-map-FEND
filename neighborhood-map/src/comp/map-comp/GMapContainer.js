@@ -9,12 +9,13 @@ export class GMapContainer extends Component {
                 defaultCenter = { { lat: 40.8250585, lng: -73.9476404 } }
                 defaultZoom = { 14 }
             >
-            {this.props.places.map(function(place){
+            {this.props.places.map(function(place, index){
                 return (
                     <Marker
-                        key={ place.id }
-                        name={ place.name }
-                        position={{lat: place.lat, lng: place.lon}}
+                        key= { place.id }
+                        name= { place.name }
+                        position= {{lat: place.lat, lng: place.lon}}
+                        key= { index }
                     />
                 )
             })}

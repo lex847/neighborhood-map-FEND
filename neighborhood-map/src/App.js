@@ -53,21 +53,21 @@ class App extends Component {
 
   }
   getAll = () =>
-  fetch(`https://api.foursquare.com/v2/venues/${this.state.places[0].fsquareID}?&client_id=004MZJ3NNBLTSYALLLXDQJ4UMRSWRDA52B5B4Y2QVQMH4THL&client_secret=VDBKT5F4MD0SIK4U4I0LCP3MAQYJ24425IIHYVHG5E13URU3&v=20180323`, { 
+  fetch(`https://api.foursquare.com/v2/venues/explore?ll=${this.state.defaultLatLon.lat},${this.state.defaultLatLon.lng}&section=coffee&limit=5&&client_id=004MZJ3NNBLTSYALLLXDQJ4UMRSWRDA52B5B4Y2QVQMH4THL&client_secret=VDBKT5F4MD0SIK4U4I0LCP3MAQYJ24425IIHYVHG5E13URU3&v=20180323`, { 
       'Accept': 'application/json',
   }).then(res => res.json())
       .then(data => data.response)
+      .catch(error => console.log(error))
       //.then(data => data.books)
 
-  componentDidMount(){ //based off Udacity 'Render UI with External Data' course
+  /*componentDidMount(){ //based off Udacity 'Render UI with External Data' course
   this.getAll().then((places) => { //.getAll can be found in the README.md
-    this.setState({ test: places } )
+    this.setState({ test: places.groups[0].items } )
   }).then(console.log(this.state.test))
   .catch( e => {
     alert(e);
   })
-}
-
+}*/
 
   markerHandleClickEvent = (event, latlong, index) => {
     this.setState ({
@@ -85,7 +85,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.test)
     return (
       <div className="App">
         <InfoListContainer
