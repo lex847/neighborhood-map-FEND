@@ -12,9 +12,8 @@ export class GMapContainer extends Component {
             {this.props.places.map(function(place, index){
                 return (
                     <Marker
-                        key= { place.id }
                         name= { place.name }
-                        position= {{lat: place.lat, lng: place.lon}}
+                        position= { {lat: place.location.lat, lng: place.location.lng} }
                         key= { index }
                     />
                 )

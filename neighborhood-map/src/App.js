@@ -64,6 +64,7 @@ class App extends Component {
       }).catch((e) => {
         console.log("Error Retrieving Four-Square Data... Reason: " + e)
       })
+      console.log(this.state.places)
 }
 
   markerHandleClickEvent = (event, latlong, index) => {
