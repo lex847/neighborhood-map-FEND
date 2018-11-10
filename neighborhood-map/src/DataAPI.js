@@ -12,8 +12,8 @@ export const fetchAllLocations = () =>
     .then(res => res.json())
     .then(data => data.response.venues)
 
-export const fetchVenueDetails = (venueId)=> {
-    return	fetch(`https://api.foursquare.com/v2/venues/${venueID}&client_id=004MZJ3NNBLTSYALLLXDQJ4UMRSWRDA52B5B4Y2QVQMH4THL&client_secret=VDBKT5F4MD0SIK4U4I0LCP3MAQYJ24425IIHYVHG5E13URU3&v=20180323`)
+export const fetchVenueDetails = (ID)=> {
+    return	fetch(`https://api.foursquare.com/v2/venues/${ID}&client_id=004MZJ3NNBLTSYALLLXDQJ4UMRSWRDA52B5B4Y2QVQMH4THL&client_secret=VDBKT5F4MD0SIK4U4I0LCP3MAQYJ24425IIHYVHG5E13URU3&v=20180323`)
             .then(handleErrors)
             .then(res => res.json())
             .then(data => data.response.venue)

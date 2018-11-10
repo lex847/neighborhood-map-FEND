@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import InfoListContainer from './comp/InfoListContainer'
+import InfoListContainer from './comp/InfoListContainer';
 import MapContainer from './comp/map-comp/MapContainer';
+import * as DataAPI from './DataAPI';
 
 class App extends Component {
   state = {
-    places: [
+    places: [],
+    placesOriginal: [],
+    placesSave: [
       {
         'name': "The City College of New York",
         'type': "School",
@@ -52,26 +55,15 @@ class App extends Component {
     test: [34]
 
   }
-  getAll = (data) =>
-    fetch(`https://api.foursquare.com/v2/venues/${data.fsquareID}client_id=004MZJ3NNBLTSYALLLXDQJ4UMRSWRDA52B5B4Y2QVQMH4THL&client_secret=VDBKT5F4MD0SIK4U4I0LCP3MAQYJ24425IIHYVHG5E13URU3&v=20180323`, { 
-        'Accept': 'application/json',
-    }).then(res => res.json())
-        .then(data => data.response)
-        .catch(error => console.log(error))
-        //.then(data => data.books)`
 
   componentDidMount(){ //based off Udacity 'Render UI with External Data' course
-  let getAll = this.getAll;
-  
-  this.state.places.map(function(place, index){
-    this.getAll(place, index).then((places) => { //.getAll can be found in the README.md
-      this.setState({ test: place[index] } )
-    })//.then(console.log(this.state.test))
-    .catch( e => {
-      alert(e);
-    })
-})
-console.log(this.state.test);
+    DataAPI.fetchAllLocations()
+      .then((loc) => {
+        this.setState( {places: loc } )
+        this.setState( { placesOriginal: loc } )
+      }).catch((e) => {
+        console.log("Error Retrieving Four-Square Data... Reason: " + e)
+      })
 }
 
   markerHandleClickEvent = (event, latlong, index) => {
