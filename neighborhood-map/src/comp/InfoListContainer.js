@@ -7,7 +7,10 @@ class InfoListContainer extends Component {
     render() {
         return (
             <div className="info-list-container">
-                <List/>
+                <List
+                listItemClick = { this.props.markerHandleClickEvent }
+                places = { this.props.places }
+                />
                 <Location/>
             </div>
         )

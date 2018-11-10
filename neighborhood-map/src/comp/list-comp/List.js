@@ -7,8 +7,9 @@ class List extends Component {
         return (
             <div className="list">
                 <h1>list</h1>
-                <FilterList/>
-                
+                <FilterList
+                listItemClick = { this.props.markerHandleClickEvent }
+                places = { this.props.places }/>
             </div>
         )
     }

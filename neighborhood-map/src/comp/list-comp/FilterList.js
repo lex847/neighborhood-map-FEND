@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class FilterList extends React.Component {
 
-state = {       // lifted from the Udacity React course 10/10/18
+state = {       // lifted from the Udacity React course 11/10/18
     query: '',
-    placesSearched: []
+    placesSearched: ['test', 'test2', 'test3']
 }
 
-updateQuery = (query) => { // lifted from the Udacity React course 10/10/18
+updateQuery = (query) => { // lifted from the Udacity React course 11/10/18
     this.setState({
         query: query
     })
@@ -40,13 +40,30 @@ render() {
                     <input 
                         type="text" 
                         placeholder="Search by name"
-                        value={this.state.query} // lifted from the Udacity React course 10/10/18
+                        value={this.state.query} // lifted from the Udacity React course 11/10/18
                         //onChange={(event) => {  //
                           //  this.updateQuery(event.target.value) //
                         //}}
                     />
                 </div>
             </div>
+            <div className="list-items-results"> 
+                <ol className="places-grid">
+                    {this.state.placesSearched.map(placesSearched => { //based on Udacity React course 11/10/18
+                        let searchedShelf = 'none';
+                
+                        /*this.props.places.map(place => (
+                            place.id === placesSearched.id ? searchedShelf = book.shelf : ''
+                        ));*/
+                            return (
+                                <li key={placesSearched.id}>
+                                <p>{placesSearched}</p>
+                                </li>
+                            )
+                        }
+                    )}
+                </ol>
+        </div>
         </div>
     )
 }
