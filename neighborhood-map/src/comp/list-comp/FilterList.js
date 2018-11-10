@@ -11,52 +11,50 @@ updateQuery = (query) => { // lifted from the Udacity React course 11/10/18
     this.setState({
         query: query
     })
-    this.pullSearchedPlaces(query);
+    this.originPlaces(query);
 }
 
-/*pullSearchedPlaces = (query) => {
-if(query){
-    BooksAPI.search(query).then((searched) => {
+originPlaces = (query) => {
+    if(query){
         if(query === this.state.query){//added check as per Udacity review
-            if(searched.error){ //any errors still produce an array for .map()
-                this.setState({ placesSearched: [] })
+            this.setState({ placesSearched: [] })
             } else {
-                this.setState({ placesSearched: searched })
+                this.setState({ placesSearched: [query] })
             }
         }
-    })
-} else{
-    this.setState({ placesSearched: [] })
+    else{
+        this.setState({ placesSearched: [] })
+    }
 }
-}*/
 
 render() {
    // let booksSearchedVar = this.state.booksSearched;
-   console.log(this.props);
+   //console.log(this.props);
     return (
-        <div className="search-places">
-            <div className="search-places-bar">
+        <div className="list-places">
+            <div className="list-places__searchbar">
                 <div className="search-books-input-wrapper">
                     <input 
                         type="text" 
                         placeholder="Search by name"
                         value={this.state.query} // lifted from the Udacity React course 11/10/18
-                        //onChange={(event) => {  //
-                          //  this.updateQuery(event.target.value) //
-                        //}}
+                        onChange={(event) => {  //
+                            this.updateQuery(event.target.value) //
+                        }}
                     />
                 </div>
             </div>
-            <div className="list-items-results"> 
-                <ol className="places-grid">
-                    {this.state.placesSearched.map(placesSearched => { //based on Udacity React course 11/10/18
+            <div className="list-places__results"> 
+                <ol className="list-places__results-grid">
+                    {   console.log(this.state.placesSearched)}
+                        {this.state.placesSearched.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
                         let searchedShelf = 'none';
                 
                         /*this.props.places.map(place => (
                             place.id === placesSearched.id ? searchedShelf = book.shelf : ''
                         ));*/
                             return (
-                                <li key={placesSearched.id}>
+                                <li key={index}>
                                 <p>{placesSearched}</p>
                                 </li>
                             )
