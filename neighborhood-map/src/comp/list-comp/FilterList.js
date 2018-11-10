@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+class FilterList extends React.Component {
+
 state = {       // lifted from the Udacity React course 10/10/18
     query: '',
     placesSearched: []
@@ -12,7 +14,7 @@ updateQuery = (query) => { // lifted from the Udacity React course 10/10/18
     this.pullSearchedPlaces(query);
 }
 
-pullSearchedPlaces = (query) => {
+/*pullSearchedPlaces = (query) => {
 if(query){
     BooksAPI.search(query).then((searched) => {
         if(query === this.state.query){//added check as per Udacity review
@@ -26,8 +28,7 @@ if(query){
 } else{
     this.setState({ placesSearched: [] })
 }
-
-}
+}*/
 
 render() {
    // let booksSearchedVar = this.state.booksSearched;
@@ -40,14 +41,15 @@ render() {
                         type="text" 
                         placeholder="Search by name"
                         value={this.state.query} // lifted from the Udacity React course 10/10/18
-                        onChange={(event) => {  //
-                            this.updateQuery(event.target.value) //
-                        }}
+                        //onChange={(event) => {  //
+                          //  this.updateQuery(event.target.value) //
+                        //}}
                     />
                 </div>
             </div>
         </div>
     )
+}
 }
 
 export default FilterList
