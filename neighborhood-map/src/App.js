@@ -56,6 +56,8 @@ class App extends Component {
 
   }
 
+  /**** App Functions ****/
+
   componentDidMount(){ //based off Udacity 'Render UI with External Data' course
     DataAPI.fetchAllLocations()
       .then((loc) => {
@@ -81,6 +83,16 @@ class App extends Component {
       //mapZoom: 
     })
   }
+
+  LocationUpdate = (query, searchArray) => {
+    if(query){
+      this.setState( { places: searchArray } ); // updates for the search query
+    } else {
+      this.setState( { places: this.state.placesOriginal } ) // resets to the default/original searched array
+    }
+  }
+
+
 
   render() {
     return (
