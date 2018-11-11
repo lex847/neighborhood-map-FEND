@@ -52,8 +52,8 @@ class App extends Component {
     markers: 0,
     defaultLatLng: { lat: 40.8250585, lng: -73.9476404 },
     updatedLatLng: {},
-    mapZoom: {},
-    test: [34]
+    zoom: 15,
+    zoomDefault: 17,
 
   }
 
@@ -67,7 +67,6 @@ class App extends Component {
       }).catch((e) => {
         console.log("Error Retrieving Four-Square Data... Reason: " + e)
       })
-      console.log(this.state.places)
 }
 
   markerHandleClickEvent = (event, latlng, index) => {
@@ -107,8 +106,11 @@ class App extends Component {
   this.setState({ updatedLatLng: this.state.defaultLatLng })
   }
 
-  infoShow = (index) => {
-
+  toggleOpen = (event, latlng, index) => {
+    this.setState({
+      zoom: this.state.zoomDefault
+    })
+    this.centerReset();
   }
 
   render() {
@@ -122,6 +124,7 @@ class App extends Component {
           (navigator.onLine) ? (<MapContainer         //boolean logic based on original Udacity project 7 code
           markerClick = { this.markerHandleClickEvent }
           places={ this.state.places }  
+          toggleOpen= { this.toggleOpen }
         />)
          : (
           <div>

@@ -46,8 +46,7 @@ render() {
             </div>
             <div className="list-places__results"> 
                 <ol className="list-places__results-grid">
-                    {   console.log(this.state.placesSearched)}
-                        {this.state.placesSearched.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
+                    {this.state.placesSearched.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
                         let searchedShelf = 'none';
                 
                         /*this.props.places.map(place => (
