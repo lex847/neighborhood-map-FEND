@@ -27,14 +27,6 @@ class App extends Component {
       }).catch((e) => {
         console.log("Error Retrieving Four-Square Data... Reason: " + e)
       })
-}
-
-  infoWindowClose = (event) => { //resets state values 
-    this.setState({
-      markers: -1,
-      //defaultLatLon: ,
-      //mapZoom: 
-    })
   }
 
   locationUpdate = (query, searchArray) => {
@@ -108,7 +100,8 @@ class App extends Component {
       showInfoIndex: indx
     })
   }
-  LocationColorChange = () => {
+
+  locationColorChange = () => {
     this.setState({selectedColorBlack: !this.state.selectedColorBlack})
   }
 
