@@ -118,10 +118,17 @@ class App extends Component {
           listItemClick = { this.markerHandleClickEvent }
           places = { this.state.places }
         />
-        <MapContainer
+        { 
+          (navigator.onLine) ? (<MapContainer         //boolean logic based on original Udacity project 7 code
           markerClick = { this.markerHandleClickEvent }
           places={ this.state.places }  
-        />
+        />)
+         : (
+          <div>
+            <h1>Google Map is Offline</h1>
+          </div>
+        )
+        }
       </div>
     );
   }
