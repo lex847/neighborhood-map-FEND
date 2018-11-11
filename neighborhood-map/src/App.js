@@ -50,7 +50,8 @@ class App extends Component {
         'fsquareID': "55a15550498e4dc36c4845c3"
       }    ],
     markers: 0,
-    defaultLatLon: { lat: 40.8250585, lng: -73.9476404 },
+    defaultLatLng: { lat: 40.8250585, lng: -73.9476404 },
+    updatedLatLng: {},
     mapZoom: {},
     test: [34]
 
@@ -69,10 +70,10 @@ class App extends Component {
       console.log(this.state.places)
 }
 
-  markerHandleClickEvent = (event, latlong, index) => {
+  markerHandleClickEvent = (event, latlng, index) => {
     this.setState ({
       markers: index,
-      defaultLatLon: latlong //centers map after click event.. fancy huh?
+      defaultLatLng: latlng //centers map after click event.. fancy huh?
     })
   }
 
@@ -92,7 +93,15 @@ class App extends Component {
     }
   }
 
-
+  CenterUpdate = (loc) => {
+    let centerNew = {};
+      if(loc !== undefined && loc.location !== undefined){
+          centerNew = { lat: loc.location.lat, lng: loc.location.lng }
+      }
+      this.setState(
+        { updatedLatLng: centerNew }
+      )
+  }
 
   render() {
     return (
