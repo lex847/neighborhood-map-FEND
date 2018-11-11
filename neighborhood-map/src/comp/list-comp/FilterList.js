@@ -54,7 +54,7 @@ render() {
                         ));*/
                             return (
                                 <li key={index}>
-                                <p>{placesSearched}</p>
+                                    <p>{placesSearched}</p>
                                 </li>
                             )
                         }
