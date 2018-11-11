@@ -85,7 +85,7 @@ class App extends Component {
     })
   }
 
-  LocationUpdate = (query, searchArray) => {
+  locationUpdate = (query, searchArray) => {
     if(query){
       this.setState( { places: searchArray } ); // updates for the search query
     } else {
@@ -93,7 +93,7 @@ class App extends Component {
     }
   }
 
-  CenterUpdate = (loc) => {
+  centerUpdate = (loc) => {
     let centerNew = {};
       if(loc !== undefined && loc.location !== undefined){
           centerNew = { lat: loc.location.lat, lng: loc.location.lng }
@@ -101,6 +101,14 @@ class App extends Component {
       this.setState(
         { updatedLatLng: centerNew }
       )
+  }
+
+  centerReset = () => { //re-centers map view 
+  this.setState({ updatedLatLng: this.state.defaultLatLng })
+  }
+
+  infoShow = (index) => {
+
   }
 
   render() {
