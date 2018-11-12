@@ -10,6 +10,7 @@ class InfoListContainer extends Component {
                 <List
                 listItemClick = { this.props.markerHandleClickEvent }
                 places = { this.props.places }
+                locationUpdate = {this.props.locationUpdate}
                 />
             </div>
         )
