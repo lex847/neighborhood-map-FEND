@@ -11,7 +11,6 @@ class InfoListContainer extends Component {
                 listItemClick = { this.props.markerHandleClickEvent }
                 places = { this.props.places }
                 />
-                <Location/>
             </div>
         )
     }
