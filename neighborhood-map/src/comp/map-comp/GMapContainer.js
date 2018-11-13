@@ -19,7 +19,7 @@ export class GMapContainer extends Component {
                 defaultCenter = { { lat: 40.8250585, lng: -73.9476404 } }
                 defaultZoom = { 15 }
             >
-                {this.props.places.map(function(place, index){
+            {this.props.places.map(function(place, index){
                 return (
                     <Marker
                         name= { place.name }
@@ -27,17 +27,21 @@ export class GMapContainer extends Component {
                         key= { index }
                         locationId = { place.id }
                     >
+                    {<InfoWindow>
+                        {<p>'Yeahhh'</p>}
+                    </InfoWindow>}
                     </Marker>    
                 )
             })}
             </GoogleMap>
         );
+        
         return (
             <div className='map-container__content'>
                 <GoogleMapDir
                     containerElement= { <div style={{ height: '100%', width: '100%' }}/> }
-                    mapElement= { <div style={{ height: '100%' }} /> }
-                />
+                    mapElement= { <div style={{ height: '100%' }} /> }>
+                    </GoogleMapDir>
             </div>
         );
         
