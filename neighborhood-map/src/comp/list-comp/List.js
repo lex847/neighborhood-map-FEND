@@ -74,10 +74,13 @@ class List extends Component {
                         <ul className="list-places__results-grid"
                             role="menu"
                             aria-label="List of Places">
-                            {places.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
+                            {places.map(function(place, index){ //based on Udacity React course 11/10/18
                                 return (
                                     <li key={index}>
-                                            <p>{placesSearched.name}</p>
+                                        <div>
+                                            <h2>{place.name}</h2>
+                                            <p>Address: {`${place.location.address} - ${place.location.city}, ${place.location.state} ${place.location.postalCode}`}</p>
+                                        </div>
                                     </li>
                                 )
                                 }
