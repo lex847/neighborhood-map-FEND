@@ -49,6 +49,9 @@ class List extends Component {
             placesImported = searchResult.placesImported,
             filteredPlaces = searchResult.placesImported;
 
+        let places = this.props.places;
+        console.log(places);
+
         return (
             <div className="list">
                 <h1>list</h1>
@@ -71,17 +74,12 @@ class List extends Component {
                         <ul className="list-places__results-grid"
                             role="menu"
                             aria-label="List of Places">
-                            {filteredPlaces.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
-                                let searchedShelf = 'none';
-                        
-                                /*this.props.places.map(place => (
-                                    place.id === placesSearched.id ? searchedShelf = book.shelf : ''
-                                ));*/
-                                    return (
-                                        <li key={index}>
-                                            <p>{placesSearched}</p>
-                                        </li>
-                                    )
+                            {places.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
+                                return (
+                                    <li key={index}>
+                                            <p>{placesSearched.name}</p>
+                                    </li>
+                                )
                                 }
                             )}
                         </ul>

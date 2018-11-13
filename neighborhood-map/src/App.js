@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     places: [],
     placesOriginal: [],
+
     markers: 0,
     defaultLatLng: { lat: 40.8250585, lng: -73.9476404 },
     updatedLatLng: {},
@@ -22,7 +23,7 @@ class App extends Component {
   componentDidMount(){ //based off Udacity 'Render UI with External Data' course
     DataAPI.fetchAllLocations()
       .then((loc) => {
-        this.setState( {places: loc } )
+        this.setState( { places: loc } )
         this.setState( { placesOriginal: loc } )
       }).catch((e) => {
         console.log("Error Retrieving Four-Square Data... Reason: " + e)
@@ -111,11 +112,9 @@ class App extends Component {
         <InfoListContainer
           listItemClick = { this.markerHandleClickEvent }
           locationUpdate = {this.locationUpdate}
-
           places = { this.state.places }
         />
-        { 
-          (navigator.onLine) ? (<MapContainer         //boolean logic based on original Udacity project 7 code
+        { (navigator.onLine) ? (<MapContainer         //boolean logic based on original Udacity project 7 code
           markerClick = { this.markerHandleClickEvent }
           places={ this.state.places }  
           toggleOpen= { this.toggleOpen }
