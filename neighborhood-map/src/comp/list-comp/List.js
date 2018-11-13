@@ -12,8 +12,8 @@ class List extends Component {
 		this.updateQuery(query)
         let result = this.searchQuery(query)
         
-		this.props.locationUpdate(result.filteredLocations, query)
-		this.setState({locationsSearchResult: result.filteredLocations})
+		this.props.locationUpdate(result.filteredPlaces, query)
+		this.setState( { placesSearched: result.filteredPlaces } )
 	}
 
     updateQuery = (query) => { // lifted from the Udacity React course 11/10/18
@@ -45,6 +45,10 @@ class List extends Component {
     }
 
     render() {
+        let searchResult = this.searchQuery(this.state.query),
+            placesImported = searchResult.placesImported,
+            filteredPlaces = searchResult.placesImported;
+
         return (
             <div className="list">
                 <h1>list</h1>
@@ -52,18 +56,22 @@ class List extends Component {
                     <div className="list-places__searchbar">
                         <div className="search-books-input-wrapper">
                             <input 
+                                className="search-input" 
                                 type="text" 
+                                aria-label="Search Filter by Name"
                                 placeholder="Search by name"
                                 value={this.state.query} // lifted from the Udacity React course 11/10/18
                                 onChange={(event) => {  //
-                                    this.updateQuery(event.target.value) //
+                                    this.inputChange(event.target.value, event) //
                                 }}
                             />
                         </div>
                     </div>
                     <div className="list-places__results"> 
-                        <ol className="list-places__results-grid">
-                            {this.state.placesSearched.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
+                        <ul className="list-places__results-grid"
+                            role="menu"
+                            aria-label="List of Places">
+                            {filteredPlaces.map(function(placesSearched, index){ //based on Udacity React course 11/10/18
                                 let searchedShelf = 'none';
                         
                                 /*this.props.places.map(place => (
@@ -76,7 +84,7 @@ class List extends Component {
                                     )
                                 }
                             )}
-                        </ol>
+                        </ul>
                     </div>
                 </div>
             </div>
