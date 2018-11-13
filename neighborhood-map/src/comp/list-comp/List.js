@@ -76,10 +76,10 @@ class List extends Component {
                             aria-label="List of Places">
                             {places.map(function(place, index){ //based on Udacity React course 11/10/18
                                 return (
-                                    <li key={index}>
+                                    <li key={index} className="list-places__results-grid__list-items">
                                         <div>
-                                            <h2>{place.name}</h2>
-                                            <p>Address: {`${place.location.address} - ${place.location.city}, ${place.location.state} ${place.location.postalCode}`}</p>
+                                            <h2><a href="#">{place.name}</a></h2>
+                                            <p>{`${place.location.address} - ${place.location.city}, ${place.location.state} ${place.location.postalCode}`}</p>
                                         </div>
                                     </li>
                                 )
