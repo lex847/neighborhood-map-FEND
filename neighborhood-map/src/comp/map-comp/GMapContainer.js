@@ -9,10 +9,15 @@ export class GMapContainer extends Component {
     }
 
     render() {
+        let places = this.props.places;
+        
+        console.log("Map: " + places)
+
         const GoogleMapDir = withGoogleMap((props) =>  //https://medium.com/@yelstin.fernandes/render-a-map-component-using-react-google-maps-5f7fb3e418bb 11.6.18
             <GoogleMap
+                places={ places }
                 defaultCenter = { { lat: 40.8250585, lng: -73.9476404 } }
-                defaultZoom = { 14 }
+                defaultZoom = { 15 }
             >
                 {this.props.places.map(function(place, index){
                 return (
@@ -20,15 +25,8 @@ export class GMapContainer extends Component {
                         name= { place.name }
                         position= { {lat: place.location.lat, lng: place.location.lng} }
                         key= { index }
-                        locationId = { place.id }>
-                         {/*<InfoWindow  onCloseClick = { (event) => {
-                            props.toggleOpen(event, { lat: place.lat, lng: place.lng }, { index })}}>
-                           <Popup 
-                            name = { place.name} 
-                            latlng = { {lat: place.lat, lng: place.lng} }
-                            locationId = { place.id }
-                           />
-                           </InfoWindow>*/}
+                        locationId = { place.id }
+                    >
                     </Marker>    
                 )
             })}

@@ -50,7 +50,6 @@ class List extends Component {
             filteredPlaces = searchResult.placesImported;
 
         let places = this.props.places;
-        console.log(places);
 
         return (
             <div className="list">
