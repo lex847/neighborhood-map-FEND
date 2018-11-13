@@ -28,7 +28,11 @@ export class GMapContainer extends Component {
                         locationId = { place.id }
                     >
                     {<InfoWindow>
-                        {<p>'Yeahhh'</p>}
+                        <div>
+                        <h2>{`${place.name}`}</h2>
+                        <p>{`${place.location.formattedAddress[0]}`}</p>
+                        <p>{`${place.location.formattedAddress[1]}`}</p>
+                        </div>
                     </InfoWindow>}
                     </Marker>    
                 )

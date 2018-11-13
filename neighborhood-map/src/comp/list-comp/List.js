@@ -78,7 +78,6 @@ class List extends Component {
                                     <li key={index} className="list-places__results-grid__list-items">
                                         <div>
                                             <h2><a href="#">{place.name}</a></h2>
-                                            <p>{`${place.location.address} - ${place.location.city}, ${place.location.state} ${place.location.postalCode}`}</p>
                                         </div>
                                     </li>
                                 )
