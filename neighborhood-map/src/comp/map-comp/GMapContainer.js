@@ -28,6 +28,7 @@ import Popup from './Popup';
                         position= { {lat: place.location.lat, lng: place.location.lng} }
                         key= { index }
                         locationId = { place.id }
+                        onClick={props.onMarkerClick} 
                     >
                     {<InfoWindow
                         
@@ -58,15 +59,37 @@ import Popup from './Popup';
       <GoogleMap
         defaultZoom={ 15 }
         defaultCenter={{ lat: 40.8250585, lng: -73.9476404 }}
-      >
-        {props.isMarkerShown && <Marker position={{ lat: 40.8250585, lng: -73.9476404 }} onClick={props.onMarkerClick} />}
+      > {console.log(props)}
+        {props.isMarkerShown && 
+            props.passedProps.places.map(function(place, index){
+                return (
+                    <Marker //https://tomchentw.github.io/react-google-maps/#infowindow 11.13.18
+                        name= { place.name }
+                        position= { {lat: place.location.lat, lng: place.location.lng} }
+                        key= { index }
+                        locationId = { place.id }
+                        onClick={props.onMarkerClick} 
+                    >
+                    {<InfoWindow
+                        
+                        >
+                        <div aria-label="Info Window">
+                        <h2>{`${place.name}`}</h2>
+                        <p>{`${place.location.formattedAddress[0]}`}</p>
+                        <p>{`${place.location.formattedAddress[1]}`}</p>
+                        <p>powered by FourSquare</p>
+                        </div>
+                    </InfoWindow>}
+                    </Marker> 
+                    )   
+            })}
       </GoogleMap>
     )    
     class GMapContainer extends React.PureComponent {
       state = {
         isMarkerShown: false,
       }
-    
+
       componentDidMount() {
         this.delayedShowMarker()
       }
@@ -83,10 +106,12 @@ import Popup from './Popup';
       }
     
       render() {
+        console.log(this.props)
         return (
           <GoogleMapDir
-            isMarkerShown={this.state.isMarkerShown}
-            onMarkerClick={this.handleMarkerClick}
+            passedProps= { this.props }
+            isMarkerShown= { this.state.isMarkerShown }
+            onMarkerClick={ this.handleMarkerClick }
           />
         )
       }
