@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+/*global google*/
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import { compose, withProps } from "recompose"; // https://tomchentw.github.io/react-google-maps/#usage--configuration 11.13.18
+import { compose, withProps, withStateHandlers, lifecycle } from "recompose"; // https://tomchentw.github.io/react-google-maps/#usage--configuration 11.13.18
 import Popup from './Popup';
 
 
@@ -53,6 +54,13 @@ import Popup from './Popup';
           containerElement: <div style={{ height: '100%', width: '100%' }}/>,
           mapElement: <div style={{ height: '100%' }} />,
         }),
+        withStateHandlers(() => ({
+            isOpen: false,
+          }), {
+            onToggleOpen: ({ isOpen }) => () => ({
+              isOpen: !isOpen,
+            })
+          }),
         withScriptjs,
         withGoogleMap
       )((props) =>
@@ -68,10 +76,12 @@ import Popup from './Popup';
                         position= { {lat: place.location.lat, lng: place.location.lng} }
                         key= { index }
                         locationId = { place.id }
-                        onClick={props.onMarkerClick} 
+                        //onClick={props.onMarkerClick} 
+                        onClick={props.onToggleOpen}
                     >
-                    {<InfoWindow
-                        
+                    {props.isOpen && <InfoWindow
+                        onCloseClick={ props.onToggleOpen }
+                        key= { index }
                         >
                         <div aria-label="Info Window">
                         <h2>{`${place.name}`}</h2>
@@ -88,6 +98,7 @@ import Popup from './Popup';
     class GMapContainer extends React.PureComponent {
       state = {
         isMarkerShown: false,
+        isOpen: false
       }
 
       componentDidMount() {
@@ -109,7 +120,8 @@ import Popup from './Popup';
         console.log(this.props)
         return (
           <GoogleMapDir
-            passedProps= { this.props }
+            passedState= { this.state }
+            passedProps= { this.props } //have to pass it throughhhh
             isMarkerShown= { this.state.isMarkerShown }
             onMarkerClick={ this.handleMarkerClick }
           />
