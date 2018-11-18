@@ -55,11 +55,11 @@ import Popup from './Popup';
           mapElement: <div style={{ height: '100%' }} />,
         }),
         withStateHandlers(() => ({
-            isOpen: false,
+            //isOpen: false,
           }), {
-            onToggleOpen: ({ isOpen }) => () => ({
+            /*onToggleOpen: ({ isOpen }) => () => ({
               isOpen: !isOpen,
-            })
+            })*/
           }),
         withScriptjs,
         withGoogleMap
@@ -79,7 +79,8 @@ import Popup from './Popup';
                         //onClick={props.onMarkerClick} 
                         onClick={ props.passedProps.infoShow }
                     >
-                    { props.passedProps.isOpen && <InfoWindow
+                    { props.passedProps.isOpen && 
+                      <InfoWindow
                         onCloseClick={ props.passedProps.infoShow }
                         key= { index }
                         >
