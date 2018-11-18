@@ -8,7 +8,8 @@ class App extends Component {
   state = {
     places: [],
     placesOriginal: [],
-
+    isOpen: false, // toggles the info window open/close
+    showInfoIndex: -100, // arbitrary number to hold index values for info window toggle
     markers: 0,
     defaultLatLng: { lat: 40.8250585, lng: -73.9476404 },
     updatedLatLng: {},
@@ -113,11 +114,15 @@ class App extends Component {
           listItemClick = { this.markerHandleClickEvent }
           locationUpdate = {this.locationUpdate}
           places = { this.state.places }
+          infoShow = { this.infoShow }
+          isOpen = { this.state.isOpen }
         />
         { (navigator.onLine) ? (<MapContainer         //boolean logic based on original Udacity project 7 code
           markerClick = { this.markerHandleClickEvent }
           places={ this.state.places }  
           toggleOpen= { this.toggleOpen }
+          infoShow = { this.infoShow }
+          isOpen = { this.state.isOpen }
         />)
          : (
           <div>

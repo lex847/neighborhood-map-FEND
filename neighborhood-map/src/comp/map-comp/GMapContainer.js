@@ -67,7 +67,7 @@ import Popup from './Popup';
       <GoogleMap
         defaultZoom={ 15 }
         defaultCenter={{ lat: 40.8250585, lng: -73.9476404 }}
-      > {console.log(props)}
+      >{console.log(props.passedProps)}
         {props.isMarkerShown && 
             props.passedProps.places.map(function(place, index){
                 return (
@@ -77,10 +77,10 @@ import Popup from './Popup';
                         key= { index }
                         locationId = { place.id }
                         //onClick={props.onMarkerClick} 
-                        onClick={props.onToggleOpen}
+                        onClick={ props.passedProps.infoShow }
                     >
-                    {props.isOpen && <InfoWindow
-                        onCloseClick={ props.onToggleOpen }
+                    { props.passedProps.isOpen && <InfoWindow
+                        onCloseClick={ props.passedProps.infoShow }
                         key= { index }
                         >
                         <div aria-label="Info Window">

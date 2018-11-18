@@ -9,6 +9,8 @@ class MapContainer extends Component {
                 places= { this.props.places }
                 markerClick = { this.props.markerHandleClickEvent }
                 toggleOpen= { this.props.toggleOpen }
+                infoShow = { this.props.infoShow }
+                isOpen = { this.props.isOpen }
                 />
             </div>
         )
