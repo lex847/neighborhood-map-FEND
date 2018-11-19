@@ -9,13 +9,12 @@ class App extends Component {
     places: [],
     placesOriginal: [],
     isOpen: false, // toggles the info window open/close
-    showInfoIndex: -100, // arbitrary number to hold index values for info window toggle
+    showInfoIndex: -1, // arbitrary number to hold index values for info window toggle
     markers: 0,
     defaultLatLng: { lat: 40.8250585, lng: -73.9476404 },
     updatedLatLng: {},
     zoom: 15,
     zoomDefault: 17,
-    //showInfoIndex: -1,
     //selectedColorBlack: true
   }
 
@@ -96,10 +95,10 @@ class App extends Component {
     this.markerHandleClockEvent(event, center, index)
   }
 
-  infoShow = (indx) => {
+  infoShow = (index) => {
     this.setState({
       isOpen : !this.state.isOpen,
-      showInfoIndex: indx
+      showInfoIndex: index
     })
   }
 
@@ -123,6 +122,7 @@ class App extends Component {
           toggleOpen= { this.toggleOpen }
           infoShow = { this.infoShow }
           isOpen = { this.state.isOpen }
+          showInfoIndex = { this.state.showInfoIndex }
         />)
          : (
           <div>

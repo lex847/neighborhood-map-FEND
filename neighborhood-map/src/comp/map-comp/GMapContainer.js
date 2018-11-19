@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Markers from './Marker'
 /*global google*/
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import { compose, withProps, withStateHandlers, lifecycle } from "recompose"; // https://tomchentw.github.io/react-google-maps/#usage--configuration 11.13.18
@@ -67,19 +68,20 @@ import Popup from './Popup';
       <GoogleMap
         defaultZoom={ 15 }
         defaultCenter={{ lat: 40.8250585, lng: -73.9476404 }}
-      >{console.log(props.passedProps)}
+        >{console.log(props.passedProps)}
         {props.isMarkerShown && 
             props.passedProps.places.map(function(place, index){
                 return (
-                    <Marker //https://tomchentw.github.io/react-google-maps/#infowindow 11.13.18
+                    <Markers //https://tomchentw.github.io/react-google-maps/#infowindow 11.13.18
                         name= { place.name }
                         position= { {lat: place.location.lat, lng: place.location.lng} }
                         key= { index }
                         locationId = { place.id }
+                        place = { place }
                         //onClick={props.onMarkerClick} 
-                        onClick={ props.passedProps.infoShow }
+                        //onClick={ props.passedProps.infoShow }
                     >
-                    { props.passedProps.isOpen && 
+                    {/* props.passedProps.showInfoIndex === index && 
                       <InfoWindow
                         onCloseClick={ props.passedProps.infoShow }
                         key= { index }
@@ -90,8 +92,8 @@ import Popup from './Popup';
                         <p>{`${place.location.formattedAddress[1]}`}</p>
                         <p>powered by FourSquare</p>
                         </div>
-                    </InfoWindow>}
-                    </Marker> 
+                    </InfoWindow>*/}
+                    </Markers> 
                     )   
             })}
       </GoogleMap>
@@ -118,7 +120,6 @@ import Popup from './Popup';
       }
     
       render() {
-        console.log(this.props)
         return (
           <GoogleMapDir
             passedState= { this.state }

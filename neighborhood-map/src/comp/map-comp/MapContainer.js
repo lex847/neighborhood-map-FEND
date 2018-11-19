@@ -11,6 +11,7 @@ class MapContainer extends Component {
                 toggleOpen= { this.props.toggleOpen }
                 infoShow = { this.props.infoShow }
                 isOpen = { this.props.isOpen }
+                showInfoIndex = { this.props.showInfoIndex }
                 />
             </div>
         )
