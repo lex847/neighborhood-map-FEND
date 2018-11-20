@@ -5,7 +5,9 @@ class InfoListContainer extends Component {
     render() {
         return (
             <div className="info-list-container">
-                <Lists/>
+                <Lists
+                places = { this.props.places }
+                />
             </div>
         )
     }
