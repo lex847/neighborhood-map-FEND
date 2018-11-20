@@ -6,7 +6,27 @@ import * as DataAPI from './DataAPI';
 
 class App extends Component {
   state = {
+    gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ'
     
+  }
+
+  initMap() { //https://developers.google.com/maps/documentation/javascript/tutorial 11.20.18
+    let map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+  }
+
+  loadGoogleMap(){
+
+  }
+
+  createGoogleMap(){
+    let mapScript = document.createElement("script");
+      mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${this.state.gkey}&callback=initMap`;
+      mapScript.async = true;
+      mapScript.defer = true;
+      return mapScript;
   }
 
   render() {
