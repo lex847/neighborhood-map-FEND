@@ -16,6 +16,7 @@ body, html, #root{
   width: 70%;
   display: flex;
   flex-wrap: wrap;
+  background-color: blue;
 }
 .map-container__content {
   width: 100%;
@@ -25,6 +26,7 @@ body, html, #root{
   display: flex;
   flex-wrap: wrap;
   width: 30%;
+  background-color: red;
 }
 
 @media only screen and (max-width: 549px) {
@@ -73,8 +75,6 @@ body, html, #root{
 .list {
   width: 100%;
   height: 50%;
-  background-color: black;
-  color: white;
 }
 
 @media only screen and (max-width: 549px) {
@@ -101,8 +101,7 @@ body, html, #root{
 .location {
   width: 100%;
   height: 50%;
-  background-color: black;
-  color: white;
+
 }
 
 @media only screen and (max-width: 549px) {
