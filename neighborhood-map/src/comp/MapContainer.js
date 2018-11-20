@@ -7,6 +7,10 @@ class MapContainer extends Component {
         
       }
     
+    componentDidMount(){
+        this.loadGoogleMap();
+    }
+
     initMap() { //https://developers.google.com/maps/documentation/javascript/tutorial 11.20.18
         let map = new window.google.maps.Map(document.getElementById('map'), { //https://stackoverflow.com/questions/49530089/using-google-map-api-inside-a-react-component 11.20.18
           center: {lat: 40.8250585, lng: -73.9476404},
@@ -25,15 +29,15 @@ class MapContainer extends Component {
     
     createGoogleMap(){
         let mapScript = document.createElement("script");
+        mapScript.type = "text/javascript";
         mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${this.state.gkey}&callback=initMap`;
         mapScript.async = true;
         mapScript.defer = true;
     
         return mapScript;
     }
-    
+
     render() {
-        this.loadGoogleMap();
 
         return (
             <div className="map-container" id='map' role='application'>

@@ -23,8 +23,12 @@ class Lists extends Component {
         </div>
         <div className="info-list-container__places">
           <ol>
-            {places.map((place) => (
-              <li>{place.name}</li>
+            {places.map((place, index) => (
+              <li key={ index }>
+                <div><h3>{ place.name }</h3></div>
+                <div><h4>{ place.location.formattedAddress[0] }</h4></div>
+                <div><h4>{ place.location.formattedAddress[1] }</h4></div>
+              </li>
             ))}
           </ol>
         </div>
