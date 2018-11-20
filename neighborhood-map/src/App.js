@@ -24,8 +24,12 @@ class App extends Component {
 
     return (
       <div className="App" role="main">
-        <InfoListContainer/>
-        <MapContainer/>
+        <InfoListContainer
+        places = { this.state.places }
+        />
+        <MapContainer
+        places = { this.state.places }
+        />
       </div>
     )
   }
