@@ -9,8 +9,8 @@ class MapContainer extends Component {
     
     initMap() { //https://developers.google.com/maps/documentation/javascript/tutorial 11.20.18
         let map = new window.google.maps.Map(document.getElementById('map'), { //https://stackoverflow.com/questions/49530089/using-google-map-api-inside-a-react-component 11.20.18
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: 40.8250585, lng: -73.9476404},
+          zoom: 14
         });
     }
     
