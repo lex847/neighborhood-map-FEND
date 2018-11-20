@@ -17,8 +17,11 @@ class App extends Component {
     });
   }
 
-  loadGoogleMap(){
+  loadGoogleMap(){ //injects  the google map scripts into the index.html by inserting before first 'script'
+    let htmlPageScripts = document.getElementsByTagName('script'),
+        googleScriptElement = this.createGoogleMap();
 
+        htmlPageScripts.parentNode.insertBefore(googleScriptElement, htmlPageScripts[0])
   }
 
   createGoogleMap(){
