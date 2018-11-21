@@ -79,11 +79,17 @@ class App extends Component {
         queryState = { this.state.query }
         inputChange = { this.inputChange }
         />
-        <MapContainer
-        places = { this.state.places }
-        clickHandler = { this.clickHandler }
-        toggleBounce = { this.toggleBounce }
-        />
+        { (navigator.onLine) ? (<MapContainer
+          places = { this.state.places }
+          clickHandler = { this.clickHandler }
+          toggleBounce = { this.toggleBounce }
+          />)
+         : (
+          <div>
+            <h1>Google Map is Offline</h1>
+          </div>
+        )
+        }
       </div>
     )
   }

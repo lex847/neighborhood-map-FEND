@@ -84,7 +84,6 @@ class MapContainer extends Component {
 
     render() {
     let places = this.props.places;
-    console.log(this.markers);
 
     this.clearMarkers()
 
