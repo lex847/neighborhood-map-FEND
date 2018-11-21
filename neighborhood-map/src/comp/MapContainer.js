@@ -37,9 +37,11 @@ class MapContainer extends Component {
     }
     
     createGoogleMap(){
-        let mapScript = document.createElement("script");
+        let mapScript = document.createElement("script"),
+            gkey = 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ';
+
         mapScript.type = "text/javascript";
-        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${this.state.gkey}&callback=initMap`;
+        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${gkey}&callback=initMap`;
         mapScript.async = true;
         mapScript.defer = true;
     
