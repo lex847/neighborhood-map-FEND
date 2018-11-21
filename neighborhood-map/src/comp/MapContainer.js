@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 class MapContainer extends Component {
     state = {
         gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ',
+        mapLoaded: false
       }
     
     componentDidMount(){
@@ -25,6 +26,10 @@ class MapContainer extends Component {
     
         script.parentNode.insertBefore(googleScriptElement, script);
         window.initMap = this.initMap;
+        
+        this.setState({
+            mapLoaded: true
+        })
     }
     
     createGoogleMap(){
@@ -40,7 +45,7 @@ class MapContainer extends Component {
     populateMarkers(places){
         let markers = [];
 
-        if(window.google) {
+        if(window.google && this.state.mapLoaded) {
             let contentString = `testing`;
             let infowindow = new window.google.maps.InfoWindow({ //https://developers.google.com/maps/documentation/javascript/infowindows 11.21.18
                 content: contentString
