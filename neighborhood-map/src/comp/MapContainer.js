@@ -62,7 +62,8 @@ class MapContainer extends Component {
                     },
                     map: window.map,
                     title: place.name,
-                    id: place.id
+                    id: place.id,
+                    animation: window.google.maps.Animation.DROP
                     });
                 marker.addListener('click', function() {
                     infowindow.open(window.map, marker);
@@ -89,9 +90,10 @@ class MapContainer extends Component {
     let places = this.props.places;
     
     this.clearMarkers()
+
     setTimeout(() => {
         this.populateMarkers(places);
-    }, 3000)
+    }, 100)
                             
         return (
             <div className="map-container" id='map' role='application'>
