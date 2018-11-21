@@ -25,7 +25,7 @@ class Lists extends Component {
           <ol>
             {places.map((place, index) => (
               <li key={ index }>
-                <div className="info-list-container__places-title"><a href='#'><h3>{ place.name }</h3></a></div>
+                <div className="info-list-container__places-title"><a href='#' onClick={() => console.log("Clicked")}><h3>{ place.name }</h3></a></div>
               </li>
             ))}
           </ol>

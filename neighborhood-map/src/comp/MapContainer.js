@@ -7,9 +7,13 @@ class MapContainer extends Component {
         mapLoaded: false
       }
     
-    componentDidMount(){
+    componentWillMount(){
         this.loadGoogleMap();
     }
+    componentDidMount(){
+     //   this.populateMarkers(this.props.places);
+    }
+    
 
     initMap() { //https://developers.google.com/maps/documentation/javascript/tutorial 11.20.18
         let map = new window.google.maps.Map(document.getElementById('map'), { //https://stackoverflow.com/questions/49530089/using-google-map-api-inside-a-react-component 11.20.18
@@ -46,12 +50,6 @@ class MapContainer extends Component {
         let markers = [];
 
         if(window.google && this.state.mapLoaded) {
-            /*let contentString = `   <div class='infowindow-content'>
-                                        <h4>${places.name}</h4>
-                                        <p>${places.location.formattedAddress[0] ? places.location.formattedAddress[0] : ''}</p>
-                                        <p>${places.location.formattedAddress[1] ? places.location.formattedAddress[1] : ''}</p>
-                                        <p>${places.location.formattedAddress[2] ? places.location.formattedAddress[2] : ''}</p>
-                                    </div>'`;*/
             let infowindow = new window.google.maps.InfoWindow({ //https://developers.google.com/maps/documentation/javascript/infowindows 11.21.18
             });
 
