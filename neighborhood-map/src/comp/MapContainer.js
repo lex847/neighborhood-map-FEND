@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 
 class MapContainer extends Component {
     state = {
-        gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ'
-        
+        gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ',
       }
     
     componentDidMount(){
@@ -16,6 +15,7 @@ class MapContainer extends Component {
           center: {lat: 40.8250585, lng: -73.9476404},
           zoom: 14
         });
+        window.map = map; 
     }
     
     loadGoogleMap(){ //injects  the google map scripts into the index.html by inserting before first 'script'
@@ -38,7 +38,24 @@ class MapContainer extends Component {
     }
 
     render() {
+        let places = this.props.places,
+            markers = [];
 
+        if(window.google) {
+            for(let i = 0; i < places.length; i += 1){
+                let marker = new window.google.maps.Marker({ //https://developers.google.com/maps/documentation/javascript/markers 11.20.18
+                    position: {
+                        lat: places[i].location.lat, 
+                        lng: places[i].location.lng 
+                    },
+                    map: window.map,
+                    title: places[i].name
+                    });
+                    markers.push(marker);
+                }
+            }
+            console.log(markers);
+    
         return (
             <div className="map-container" id='map' role='application'>
             </div>

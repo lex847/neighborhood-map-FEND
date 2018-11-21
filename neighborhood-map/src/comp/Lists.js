@@ -25,9 +25,7 @@ class Lists extends Component {
           <ol>
             {places.map((place, index) => (
               <li key={ index }>
-                <div><h3>{ place.name }</h3></div>
-                <div><h4>{ place.location.formattedAddress[0] }</h4></div>
-                <div><h4>{ place.location.formattedAddress[1] }</h4></div>
+                <div className="info-list-container__places-title"><a href='#'><h3>{ place.name }</h3></a></div>
               </li>
             ))}
           </ol>
