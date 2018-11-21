@@ -7,6 +7,7 @@ class InfoListContainer extends Component {
             <div className="info-list-container">
                 <Lists
                 places = { this.props.places }
+                clickHandler = { this.props.clickHandler }
                 />
             </div>
         )

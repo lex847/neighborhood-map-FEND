@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 class MapContainer extends Component {
     state = {
         gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ',
-        mapLoaded: false
       }
     
     componentWillMount(){
@@ -60,7 +59,8 @@ class MapContainer extends Component {
                         lng: place.location.lng 
                     },
                     map: window.map,
-                    title: place.name
+                    title: place.name,
+                    id: place.id
                     });
                 marker.addListener('click', function() {
                     infowindow.open(window.map, marker);
@@ -72,7 +72,9 @@ class MapContainer extends Component {
                                         </div>'`)
                 });
                 markers.push(marker);
-            } 
+            }
+            window.markers = markers;
+            window.infoWindow = infowindow;
         }
     }
 

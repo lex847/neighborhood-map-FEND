@@ -20,15 +20,27 @@ class App extends Component {
       })
   }
 
+  clickHandler(loc){
+    console.log(window)
+
+    for(let mark of window.markers){
+      if(loc.id === mark.id){
+        window.infoWindow.open(window.map, mark);
+      }
+    }
+  }
+
   render() {
 
     return (
       <div className="App" role="main">
         <InfoListContainer
         places = { this.state.places }
+        clickHandler = { this.clickHandler }
         />
         <MapContainer
         places = { this.state.places }
+        clickHandler = { this.clickHandler }
         />
       </div>
     )
