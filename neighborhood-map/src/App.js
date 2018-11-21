@@ -30,7 +30,6 @@ class App extends Component {
                                     <h4>${loc.name}</h4>
                                     <p>${loc.location.formattedAddress[0] ? loc.location.formattedAddress[0] : ''}</p>
                                     <p>${loc.location.formattedAddress[1] ? loc.location.formattedAddress[1] : ''}</p>
-                                    <p>${loc.location.formattedAddress[2] ? loc.location.formattedAddress[2] : ''}</p>
                                     <p>powered by FourSquare</p>
                                   </div>`;
         window.infoWindow.setContent(infoWindowContent);
@@ -42,7 +41,20 @@ class App extends Component {
   inputChange = (query) => {
     this.setState({
       query: query
-    })
+    });
+    if(query){
+      this.setState({
+        places: this.filteredPlaces(query, this.state.places)
+      })
+    } else {
+      this.setState({
+        places: this.state.placesOriginal
+      })
+    }
+  }
+
+  filteredPlaces = (query, places) => {
+    return places.filter(place => place.name.includes(query))
   }
 
   render() {

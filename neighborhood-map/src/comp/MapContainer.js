@@ -68,7 +68,6 @@ class MapContainer extends Component {
                                         <h4>${place.name}</h4>
                                         <p>${place.location.formattedAddress[0] ? place.location.formattedAddress[0] : ''}</p>
                                         <p>${place.location.formattedAddress[1] ? place.location.formattedAddress[1] : ''}</p>
-                                        <p>${place.location.formattedAddress[2] ? place.location.formattedAddress[2] : ''}</p>
                                         <p>powered by FourSquare</p>
                                         </div>`)
                 });
