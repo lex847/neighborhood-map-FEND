@@ -26,7 +26,7 @@ class MapContainer extends Component {
     
         script.parentNode.insertBefore(googleScriptElement, script);
         window.initMap = this.initMap;
-        
+
         this.setState({
             mapLoaded: true
         })
@@ -46,10 +46,14 @@ class MapContainer extends Component {
         let markers = [];
 
         if(window.google && this.state.mapLoaded) {
-            let contentString = `testing`;
+            /*let contentString = `   <div class='infowindow-content'>
+                                        <h4>${places.name}</h4>
+                                        <p>${places.location.formattedAddress[0] ? places.location.formattedAddress[0] : ''}</p>
+                                        <p>${places.location.formattedAddress[1] ? places.location.formattedAddress[1] : ''}</p>
+                                        <p>${places.location.formattedAddress[2] ? places.location.formattedAddress[2] : ''}</p>
+                                    </div>'`;*/
             let infowindow = new window.google.maps.InfoWindow({ //https://developers.google.com/maps/documentation/javascript/infowindows 11.21.18
-                content: contentString
-              });
+            });
 
             for(let place of places){
                 let marker = new window.google.maps.Marker({ //https://developers.google.com/maps/documentation/javascript/markers 11.20.18
@@ -62,6 +66,12 @@ class MapContainer extends Component {
                     });
                 marker.addListener('click', function() {
                     infowindow.open(window.map, marker);
+                    infowindow.setContent(` <div class='infowindow-content'>
+                                        <h4>${place.name}</h4>
+                                        <p>${place.location.formattedAddress[0] ? place.location.formattedAddress[0] : ''}</p>
+                                        <p>${place.location.formattedAddress[1] ? place.location.formattedAddress[1] : ''}</p>
+                                        <p>${place.location.formattedAddress[2] ? place.location.formattedAddress[2] : ''}</p>
+                                        </div>'`)
                 });
                 markers.push(marker);
             } 
