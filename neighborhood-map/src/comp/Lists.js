@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as DataAPI from '../DataAPI';
 
 class Lists extends Component {
   state = {

@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   clickHandler = (loc) => {
-    console.log(window)
+    console.log(window.markers)
 
     for(let mark of window.markers){
       if(loc.id === mark.id){
@@ -34,10 +34,17 @@ class App extends Component {
                                   </div>`;
         window.infoWindow.setContent(infoWindowContent);
         window.infoWindow.open(window.map, mark);
+        
       }
     }
   }
-
+  toggleBounce = (marker) => {
+    if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+      marker.setAnimation(window.google.maps.Animation.BOUNCE);
+    }
+}
   inputChange = (query) => {
     this.setState({
       query: query
@@ -57,6 +64,7 @@ class App extends Component {
     return places.filter(place => place.name.toLowerCase().includes(query.toLowerCase()))
   }
 
+
   render() {
 
     return (
@@ -70,6 +78,7 @@ class App extends Component {
         <MapContainer
         places = { this.state.places }
         clickHandler = { this.clickHandler }
+        toggleBounce = { this.toggleBounce }
         />
       </div>
     )

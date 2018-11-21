@@ -40,15 +40,16 @@ class MapContainer extends Component {
         let mapScript = document.createElement("script"),
             gkey = 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ';
 
-        mapScript.type = "text/javascript";
-        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${gkey}&callback=initMap`;
         mapScript.async = true;
         mapScript.defer = true;
-    
+        mapScript.type = "text/javascript";
+        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${gkey}&callback=initMap`;
+
         return mapScript;
     }
 
     populateMarkers = (places) => {
+        let props = this.props;
 
         if(window.google && this.state.mapLoaded) {
             let infowindow = new window.google.maps.InfoWindow({ //https://developers.google.com/maps/documentation/javascript/infowindows 11.21.18
@@ -63,16 +64,17 @@ class MapContainer extends Component {
                     map: window.map,
                     title: place.name,
                     id: place.id,
-                    animation: window.google.maps.Animation.DROP
+                    animation: window.google.maps.Animation.DROP //https://developers.google.com/maps/documentation/javascript/examples/marker-animations 11.21.18
                     });
                 marker.addListener('click', function() {
+                    props.toggleBounce(marker);
                     infowindow.open(window.map, marker);
                     infowindow.setContent(` <div class='infowindow-content'>
                                         <h4>${place.name}</h4>
                                         <p>${place.location.formattedAddress[0] ? place.location.formattedAddress[0] : ''}</p>
                                         <p>${place.location.formattedAddress[1] ? place.location.formattedAddress[1] : ''}</p>
                                         <p>powered by FourSquare</p>
-                                        </div>`)
+                                        </div>`);
                 });
                 this.markers.push(marker);
             }
@@ -80,6 +82,7 @@ class MapContainer extends Component {
             window.infoWindow = infowindow;
         }
     }
+
     clearMarkers = () => {
         for (let mark of this.markers){
             mark.setMap(null); //https://developers.google.com/maps/documentation/javascript/markers 11.21.18
@@ -93,7 +96,7 @@ class MapContainer extends Component {
 
     setTimeout(() => {
         this.populateMarkers(places);
-    }, 100)
+    }, 500)
                             
         return (
             <div className="map-container" id='map' role='application'>
