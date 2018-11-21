@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   filteredPlaces = (query, places) => {
-    return places.filter(place => place.name.includes(query))
+    return places.filter(place => place.name.toLowerCase().includes(query.toLowerCase()))
   }
 
   render() {
