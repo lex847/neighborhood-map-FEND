@@ -89,7 +89,9 @@ class MapContainer extends Component {
     let places = this.props.places;
     
     this.clearMarkers()
-    this.populateMarkers(places);
+    setTimeout(() => {
+        this.populateMarkers(places);
+    }, 3000)
                             
         return (
             <div className="map-container" id='map' role='application'>
