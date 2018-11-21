@@ -37,25 +37,29 @@ class MapContainer extends Component {
         return mapScript;
     }
 
-    render() {
-        let places = this.props.places,
-            markers = [];
+    populateMarkers(places){
+        let markers = [];
 
         if(window.google) {
-            for(let i = 0; i < places.length; i += 1){
+            for(let place of places){
                 let marker = new window.google.maps.Marker({ //https://developers.google.com/maps/documentation/javascript/markers 11.20.18
                     position: {
-                        lat: places[i].location.lat, 
-                        lng: places[i].location.lng 
+                        lat: place.location.lat, 
+                        lng: place.location.lng 
                     },
                     map: window.map,
-                    title: places[i].name
+                    title: place.name
                     });
                     markers.push(marker);
                 }
-            }
-            console.log(markers);
-    
+            } 
+    }
+
+    render() {
+    let places = this.props.places;
+
+    this.populateMarkers(places);
+                            
         return (
             <div className="map-container" id='map' role='application'>
             </div>
