@@ -22,7 +22,6 @@ class App extends Component {
   }
 
   clickHandler = (loc) => {
-    console.log(window.markers)
 
     for(let mark of window.markers){
       if(loc.id === mark.id){
@@ -35,16 +34,18 @@ class App extends Component {
         window.infoWindow.setContent(infoWindowContent);
         window.infoWindow.open(window.map, mark);
         this.toggleBounce(mark);
-        
       }
     }
   }
 
-  toggleBounce = (marker) => {
+  toggleBounce = (marker) => {  // https://developers.google.com/maps/documentation/javascript/examples/marker-animations 11.21.18
     if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
     } else {
       marker.setAnimation(window.google.maps.Animation.BOUNCE);
+      setTimeout(function(){ // https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once 11.21.18
+        marker.setAnimation(null);
+      }, 2000)
     }
   }
 
