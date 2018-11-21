@@ -41,6 +41,11 @@ class MapContainer extends Component {
         let markers = [];
 
         if(window.google) {
+            let contentString = `testing`;
+            let infowindow = new window.google.maps.InfoWindow({ //https://developers.google.com/maps/documentation/javascript/infowindows 11.21.18
+                content: contentString
+              });
+
             for(let place of places){
                 let marker = new window.google.maps.Marker({ //https://developers.google.com/maps/documentation/javascript/markers 11.20.18
                     position: {
@@ -50,9 +55,12 @@ class MapContainer extends Component {
                     map: window.map,
                     title: place.name
                     });
-                    markers.push(marker);
-                }
+                marker.addListener('click', function() {
+                    infowindow.open(window.map, marker);
+                });
+                markers.push(marker);
             } 
+        }
     }
 
     render() {
