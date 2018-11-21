@@ -5,7 +5,8 @@ class MapContainer extends Component {
     state = {
         gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ',
       }
-    
+    markers = [];
+
     componentWillMount(){
         this.loadGoogleMap();
     }
@@ -45,8 +46,7 @@ class MapContainer extends Component {
         return mapScript;
     }
 
-    populateMarkers(places){
-        let markers = [];
+    populateMarkers = (places) => {
 
         if(window.google && this.state.mapLoaded) {
             let infowindow = new window.google.maps.InfoWindow({ //https://developers.google.com/maps/documentation/javascript/infowindows 11.21.18
@@ -71,16 +71,22 @@ class MapContainer extends Component {
                                         <p>powered by FourSquare</p>
                                         </div>`)
                 });
-                markers.push(marker);
+                this.markers.push(marker);
             }
-            window.markers = markers;
+            window.markers = this.markers;
             window.infoWindow = infowindow;
+        }
+    }
+    clearMarkers = () => {
+        for (let mark of this.markers){
+            mark.setMap(null); //https://developers.google.com/maps/documentation/javascript/markers 11.21.18
         }
     }
 
     render() {
     let places = this.props.places;
-
+    
+    this.clearMarkers()
     this.populateMarkers(places);
                             
         return (
