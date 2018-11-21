@@ -12,6 +12,7 @@ class Lists extends Component {
     return (
       <div className="info-list-container__list">
         <h2>Places</h2>
+        <p>{ this.props.queryState }</p>
         <div className="info-list-container__searchbar">
           <input 
             type="text" 
