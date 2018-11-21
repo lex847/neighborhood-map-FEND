@@ -69,7 +69,8 @@ class MapContainer extends Component {
                                         <p>${place.location.formattedAddress[0] ? place.location.formattedAddress[0] : ''}</p>
                                         <p>${place.location.formattedAddress[1] ? place.location.formattedAddress[1] : ''}</p>
                                         <p>${place.location.formattedAddress[2] ? place.location.formattedAddress[2] : ''}</p>
-                                        </div>'`)
+                                        <p>powered by FourSquare</p>
+                                        </div>`)
                 });
                 markers.push(marker);
             }

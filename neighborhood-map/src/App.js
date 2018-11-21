@@ -21,7 +21,7 @@ class App extends Component {
       })
   }
 
-  clickHandler(loc){
+  clickHandler = (loc) => {
     console.log(window)
 
     for(let mark of window.markers){
@@ -31,7 +31,8 @@ class App extends Component {
                                     <p>${loc.location.formattedAddress[0] ? loc.location.formattedAddress[0] : ''}</p>
                                     <p>${loc.location.formattedAddress[1] ? loc.location.formattedAddress[1] : ''}</p>
                                     <p>${loc.location.formattedAddress[2] ? loc.location.formattedAddress[2] : ''}</p>
-                                  </div>'`;
+                                    <p>powered by FourSquare</p>
+                                  </div>`;
         window.infoWindow.setContent(infoWindowContent);
         window.infoWindow.open(window.map, mark);
       }
