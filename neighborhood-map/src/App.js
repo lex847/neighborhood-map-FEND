@@ -34,17 +34,20 @@ class App extends Component {
                                   </div>`;
         window.infoWindow.setContent(infoWindowContent);
         window.infoWindow.open(window.map, mark);
+        this.toggleBounce(mark);
         
       }
     }
   }
+
   toggleBounce = (marker) => {
     if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
     } else {
       marker.setAnimation(window.google.maps.Animation.BOUNCE);
     }
-}
+  }
+
   inputChange = (query) => {
     this.setState({
       query: query

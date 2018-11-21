@@ -2,18 +2,11 @@ import React, { Component } from 'react'
 
 
 class MapContainer extends Component {
-    state = {
-        gkey: 'AIzaSyBl2AofdiKYqxJE6ktBJJSDUTlvHgo9OrQ',
-      }
     markers = [];
 
     componentWillMount(){
         this.loadGoogleMap();
     }
-    componentDidMount(){
-     //   this.populateMarkers(this.props.places);
-    }
-    
 
     initMap() { //https://developers.google.com/maps/documentation/javascript/tutorial 11.20.18
         let map = new window.google.maps.Map(document.getElementById('map'), { //https://stackoverflow.com/questions/49530089/using-google-map-api-inside-a-react-component 11.20.18
@@ -91,7 +84,8 @@ class MapContainer extends Component {
 
     render() {
     let places = this.props.places;
-    
+    console.log(this.markers);
+
     this.clearMarkers()
 
     setTimeout(() => {
