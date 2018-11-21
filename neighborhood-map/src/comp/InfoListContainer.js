@@ -8,6 +8,8 @@ class InfoListContainer extends Component {
                 <Lists
                 places = { this.props.places }
                 clickHandler = { this.props.clickHandler }
+                queryState = { this.props.query }
+                inputChange = { this.props.inputChange }
                 />
             </div>
         )

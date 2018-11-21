@@ -16,9 +16,9 @@ class Lists extends Component {
           <input 
             type="text" 
             placeholder="Search by name"
-            //value={this.state.query} // lifted from the Udacity React course 11/10/18
-            //onChange={(event) => {  //
-            //    this.updateQuery(event.target.value) //}}
+            value= { this.props.queryState } // lifted from the Udacity React course 11/10/18
+            onChange={(event) => {  //
+                this.props.inputChange(event.target.value)}}
           />
         </div>
         <div className="info-list-container__places">
