@@ -17,15 +17,24 @@ body, html, #root{
   display: flex;
   flex-wrap: wrap;
 }
+
 .map-container__content {
   width: 100%;
 }
 
-.info-list-container{
+.info-list-container {
   display: flex;
   flex-wrap: wrap;
   width: 30%;
-  background-color: red;
+  background-color: #c9cace;
+}
+.info-list-container__list{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-list-container__places {
+
 }
 
 @media only screen and (max-width: 549px) {
@@ -70,6 +79,19 @@ body, html, #root{
 }
 
 /* List */
+ol {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+}
+.app-title{
+  font-family: 'Lobster', cursive;
+}
+
+.app-list-items{
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+}
 
 .list {
   width: 100%;

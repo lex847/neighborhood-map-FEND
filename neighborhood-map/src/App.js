@@ -79,7 +79,7 @@ class App extends Component {
         queryState = { this.state.query }
         inputChange = { this.inputChange }
         />
-        { (navigator.onLine) ? (<MapContainer
+        { (navigator.onLine) ? (<MapContainer // https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine 11.21.18
           places = { this.state.places }
           clickHandler = { this.clickHandler }
           toggleBounce = { this.toggleBounce }
@@ -88,8 +88,7 @@ class App extends Component {
           <div>
             <h1>Google Map is Offline</h1>
           </div>
-        )
-        }
+        ) }
       </div>
     )
   }

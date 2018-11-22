@@ -10,8 +10,7 @@ class Lists extends Component {
 
     return (
       <div className="info-list-container__list">
-        <h2>Places</h2>
-        <p>{ this.props.queryState }</p>
+        <h1 class="app-title">Washington Heights Coffee Shops</h1>
         <div className="info-list-container__searchbar">
           <input 
             type="text" 
@@ -25,7 +24,7 @@ class Lists extends Component {
           <ol>
             {places.map((place, index) => (
               <li key={ index }>
-                <div className="info-list-container__places-title"><a href='#' onClick={() => this.props.clickHandler(place)}><h3>{ place.name }</h3></a></div>
+                <div className="info-list-container__places-title"><a href='#' onClick={() => this.props.clickHandler(place)}><h2 class="app-list-items">{ place.name }</h2></a></div>
               </li>
             ))}
           </ol>

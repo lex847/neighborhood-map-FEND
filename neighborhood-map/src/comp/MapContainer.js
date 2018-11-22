@@ -63,7 +63,7 @@ class MapContainer extends Component {
                     props.toggleBounce(marker);
                     infowindow.open(window.map, marker);
                     infowindow.setContent(` <div class='infowindow-content'>
-                                        <h4>${place.name}</h4>
+                                        <h3>${place.name}</h3>
                                         <p>${place.location.formattedAddress[0] ? place.location.formattedAddress[0] : ''}</p>
                                         <p>${place.location.formattedAddress[1] ? place.location.formattedAddress[1] : ''}</p>
                                         <p>powered by FourSquare</p>
@@ -80,16 +80,16 @@ class MapContainer extends Component {
         for (let mark of this.markers){
             mark.setMap(null); //https://developers.google.com/maps/documentation/javascript/markers 11.21.18
         }
+       this.markers = [];
     }
 
     render() {
     let places = this.props.places;
-
     this.clearMarkers()
 
     setTimeout(() => {
         this.populateMarkers(places);
-    }, 500)
+    }, 300)
                             
         return (
             <div className="map-container" id='map' role='application'>
