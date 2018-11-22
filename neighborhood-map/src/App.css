@@ -27,6 +27,7 @@ body, html, #root{
   flex-wrap: wrap;
   width: 30%;
   background-color: #c9cace;
+  overflow-y: auto; /* https://stackoverflow.com/questions/2295766/how-to-create-a-scrollable-div-tag-vertically */
 }
 .info-list-container__list{
   margin-left: auto;
@@ -80,7 +81,7 @@ body, html, #root{
 
 /* List */
 ol {
-  list-style-type: none;
+  list-style-type: none; /*https://stackoverflow.com/questions/1027354/need-an-unordered-list-without-any-bullets 11.22.18 */
   text-align: center;
   padding: 0px 0px 0px 0px;
 }
