@@ -34,10 +34,6 @@ body, html, #root{
   margin-right: auto;
 }
 
-.info-list-container__places {
-
-}
-
 @media only screen and (max-width: 549px) {
   .info-list-container {
     width: 100%;
@@ -84,6 +80,9 @@ ol {
   list-style-type: none; /*https://stackoverflow.com/questions/1027354/need-an-unordered-list-without-any-bullets 11.22.18 */
   text-align: center;
   padding: 0px 0px 0px 0px;
+}
+input {
+  width: 50%;
 }
 .app-title{
   font-family: 'Lobster', cursive;
